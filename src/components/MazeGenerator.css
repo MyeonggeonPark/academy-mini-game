@@ -1,0 +1,642 @@
+/* Maze Generator Styles */
+.maze-generator {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px); /* Account for navigation height */
+}
+
+/* Responsive container */
+@media (max-width: 768px) {
+  .maze-generator {
+    padding: 15px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .maze-generator {
+    padding: 10px;
+  }
+}
+
+.config-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Responsive config section */
+@media (max-width: 768px) {
+  .config-section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .config-section {
+    padding: 12px;
+    border-radius: 6px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Responsive form groups */
+@media (max-width: 480px) {
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Responsive labels */
+@media (max-width: 480px) {
+  .form-label {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+}
+
+.form-select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  min-width: 150px;
+  min-height: 44px; /* Touch-friendly minimum size */
+  width: 100%;
+  max-width: 250px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive form select */
+@media (max-width: 480px) {
+  .form-select {
+    max-width: 100%;
+    padding: 14px 12px;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+.form-select:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Better error state visibility */
+.form-select.error:focus {
+  outline-color: #dc3545;
+}
+
+/* Better success state visibility */
+.form-select.valid:focus {
+  outline-color: #28a745;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-select.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.form-select.valid {
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+
+.form-select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.success-banner {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-banner {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.generate-button {
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 48px; /* Touch-friendly minimum size */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Responsive generate button */
+@media (max-width: 768px) {
+  .generate-button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .generate-button {
+    padding: 16px 20px;
+    font-size: 17px;
+    min-height: 52px;
+  }
+}
+
+.generate-button:enabled {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.generate-button:enabled:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.generate-button:enabled:active {
+  transform: translateY(0);
+}
+
+.generate-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner.large {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.action-buttons {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive action buttons */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .action-buttons {
+    gap: 15px;
+  }
+}
+
+.print-button, .print-preview-button, .clear-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px; /* Touch-friendly minimum size */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.print-button {
+  background-color: #28a745;
+}
+
+.print-button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.print-preview-button {
+  background-color: #17a2b8;
+}
+
+.print-preview-button:hover {
+  background-color: #138496;
+  transform: translateY(-1px);
+}
+
+.clear-button {
+  background-color: #6c757d;
+}
+
+.clear-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Responsive action buttons */
+@media (max-width: 768px) {
+  .print-button, .print-preview-button, .clear-button {
+    width: 100%;
+    max-width: 250px;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .print-button, .print-preview-button, .clear-button {
+    padding: 16px 20px;
+    font-size: 17px;
+    min-height: 48px;
+  }
+}
+
+.maze-worksheet {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.maze-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+}
+
+.maze-title {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.maze-info {
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+}
+
+.maze-instructions {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  color: #666;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.maze-size-info {
+  font-size: 12px;
+  margin: 5px 0 0 0;
+  color: #888;
+}
+
+.maze-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  overflow: auto; /* Allow scrolling if needed */
+  max-height: 85vh; /* Prevent container from being too tall */
+  padding: 10px;
+}
+
+/* Responsive maze container */
+@media (max-width: 768px) {
+  .maze-container {
+    margin: 15px 0;
+    padding: 5px;
+    max-height: 75vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .maze-container {
+    margin: 10px 0;
+    padding: 2px;
+    max-height: 65vh;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .maze-container {
+    max-height: 55vh;
+    margin: 5px 0;
+  }
+}
+
+.maze-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.maze-svg {
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  max-width: 100%;
+  max-height: 80vh; /* Prevent maze from being too tall */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive maze SVG */
+@media (max-width: 768px) {
+  .maze-svg {
+    max-width: calc(100vw - 40px); /* Account for padding */
+    max-height: 70vh; /* Smaller max height on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .maze-svg {
+    max-width: calc(100vw - 30px); /* Account for smaller padding */
+    max-height: 60vh; /* Even smaller on mobile */
+    border-radius: 2px;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .maze-svg {
+    max-height: 50vh;
+  }
+}
+
+.maze-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+/* Responsive maze legend */
+@media (max-width: 480px) {
+  .maze-legend {
+    gap: 15px;
+    font-size: 13px;
+  }
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.start-marker {
+  background-color: #28a745;
+}
+
+.end-marker {
+  background-color: #dc3545;
+}
+
+.maze-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.loading-state p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Print-specific styles */
+@media print {
+  /* Hide non-worksheet elements */
+  .maze-generator > h1,
+  .config-section,
+  .action-buttons {
+    display: none !important;
+  }
+  
+  /* Reset body and main container */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Times New Roman', serif !important;
+    background: white !important;
+  }
+  
+  .maze-generator {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Worksheet styling */
+  .maze-worksheet {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 3mm !important;
+    margin: 0 !important;
+    background: white !important;
+    box-sizing: border-box !important;
+  }
+  
+  .maze-header {
+    margin-bottom: 5mm !important;
+    padding-bottom: 2mm !important;
+  }
+  
+  .maze-title {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .maze-info {
+    font-size: 14px !important;
+  }
+  
+  .maze-instructions {
+    font-size: 12px !important;
+    margin-top: 8px !important;
+  }
+  
+  .maze-size-info {
+    font-size: 10px !important;
+    margin-top: 5px !important;
+  }
+  
+  .maze-container {
+    margin: 2mm 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .maze-display {
+    gap: 10px !important;
+  }
+  
+  .maze-svg {
+    border: none !important;
+    /* Maximize SVG size to nearly fill entire A4 page */
+    max-width: 198mm !important;
+    max-height: 275mm !important;
+    width: auto !important;
+    height: auto !important;
+    transform-origin: center center !important;
+    /* Ensure proper scaling for large mazes */
+    object-fit: contain !important;
+  }
+  
+  .maze-legend {
+    font-size: 12px !important;
+    gap: 15px !important;
+    margin-top: 10px !important;
+  }
+  
+  .legend-marker {
+    width: 12px !important;
+    height: 12px !important;
+    border-width: 1px !important;
+  }
+  
+  .maze-footer {
+    margin-top: 2mm !important;
+    padding-top: 1mm !important;
+    font-size: 10px !important;
+  }
+  
+  @page {
+    margin: 5mm;
+    size: A4;
+  }
+  
+  /* Ensure proper page breaks */
+  .maze-worksheet {
+    page-break-inside: avoid !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure page breaks work properly */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

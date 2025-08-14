@@ -1,0 +1,687 @@
+/* Math Generator Styles */
+.math-generator {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px); /* Account for navigation height */
+}
+
+/* Responsive container */
+@media (max-width: 768px) {
+  .math-generator {
+    padding: 15px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .math-generator {
+    padding: 10px;
+  }
+}
+
+.config-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Responsive config section */
+@media (max-width: 768px) {
+  .config-section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .config-section {
+    padding: 12px;
+    border-radius: 6px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Responsive form groups */
+@media (max-width: 480px) {
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Responsive labels */
+@media (max-width: 480px) {
+  .form-label {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+}
+
+.form-select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 44px; /* Touch-friendly minimum size */
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-select.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.form-select.valid {
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+
+.form-select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.operations-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive operations group */
+@media (max-width: 768px) {
+  .operations-group {
+    gap: 12px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .operations-group {
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+  }
+}
+
+.operations-group.error {
+  border-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.operations-group.valid {
+  border-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.operation-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  padding: 8px;
+  border-radius: 4px;
+  min-height: 44px; /* Touch-friendly minimum size */
+}
+
+.operation-checkbox:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Responsive checkboxes */
+@media (max-width: 480px) {
+  .operation-checkbox {
+    padding: 12px 8px;
+    justify-content: flex-start;
+  }
+}
+
+.operation-checkbox input:disabled {
+  cursor: not-allowed;
+}
+
+.operation-checkbox:has(input:disabled) {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.operation-checkbox input {
+  margin-right: 12px;
+  transform: scale(1.3);
+  min-width: 18px;
+  min-height: 18px;
+}
+
+/* Responsive checkbox inputs */
+@media (max-width: 480px) {
+  .operation-checkbox input {
+    transform: scale(1.5);
+    margin-right: 15px;
+  }
+}
+
+.operation-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+  min-height: 44px; /* Touch-friendly minimum size */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive form inputs */
+@media (max-width: 480px) {
+  .form-input {
+    max-width: 100%;
+    padding: 14px 12px;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+.form-input:focus,
+.form-select:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Better error state visibility */
+.form-input.error:focus,
+.form-select.error:focus {
+  outline-color: #dc3545;
+}
+
+/* Better success state visibility */
+.form-input.valid:focus,
+.form-select.valid:focus {
+  outline-color: #28a745;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-input.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.form-input.valid {
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+
+.form-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.success-banner {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-banner {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.generate-button {
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-width: 180px;
+  min-height: 48px; /* Touch-friendly minimum size */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Responsive generate button */
+@media (max-width: 768px) {
+  .generate-button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .generate-button {
+    padding: 16px 20px;
+    font-size: 17px;
+    min-height: 52px;
+  }
+}
+
+.generate-button:enabled {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.generate-button:enabled:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.generate-button:enabled:active {
+  transform: translateY(0);
+}
+
+.generate-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.action-buttons {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive action buttons */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .action-buttons {
+    gap: 15px;
+  }
+}
+
+.print-button, .print-preview-button, .clear-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px; /* Touch-friendly minimum size */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.print-button {
+  background-color: #28a745;
+}
+
+.print-button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.print-preview-button {
+  background-color: #17a2b8;
+}
+
+.print-preview-button:hover {
+  background-color: #138496;
+  transform: translateY(-1px);
+}
+
+.clear-button {
+  background-color: #6c757d;
+}
+
+.clear-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Responsive action buttons */
+@media (max-width: 768px) {
+  .print-button, .print-preview-button, .clear-button {
+    width: 100%;
+    max-width: 250px;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .print-button, .print-preview-button, .clear-button {
+    padding: 16px 20px;
+    font-size: 17px;
+    min-height: 48px;
+  }
+}
+
+.worksheet {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.worksheet-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+}
+
+.worksheet-title {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.worksheet-info {
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+}
+
+.worksheet-instructions {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  color: #666;
+}
+
+.problems-grid {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+}
+
+.problems-grid.single-column {
+  grid-template-columns: 1fr;
+}
+
+.problems-grid.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Responsive problems grid */
+@media (max-width: 768px) {
+  .problems-grid.two-columns {
+    grid-template-columns: 1fr; /* Single column on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .problems-grid {
+    gap: 8px;
+  }
+}
+
+.problem-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fafafa;
+  min-height: 45px;
+}
+
+.problem-number {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 15px;
+  min-width: 30px;
+  color: #666;
+}
+
+.problem-text {
+  font-size: 20px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.worksheet-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}
+
+/* Removed page break styles - using simple continuous layout */
+
+/* Print-specific styles */
+@media print {
+  /* Hide non-worksheet elements */
+  .math-generator > h1,
+  .config-section,
+  .action-buttons {
+    display: none !important;
+  }
+  
+  /* Reset body and main container */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Times New Roman', serif !important;
+    background: white !important;
+  }
+  
+  .math-generator {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Worksheet styling */
+  .worksheet {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 15mm !important;
+    margin: 0 !important;
+    background: white !important;
+    box-sizing: border-box !important;
+  }
+  
+  .worksheet-title {
+    font-size: 22px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .worksheet-header {
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+  }
+  
+  .worksheet-title {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .worksheet-info {
+    font-size: 14px !important;
+  }
+  
+  .worksheet-instructions {
+    font-size: 12px !important;
+    margin-top: 8px !important;
+  }
+  
+  .problems-grid {
+    gap: 4px !important;
+  }
+  
+  .problems-grid.single-column {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .problems-grid.two-columns {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  .problem-item {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    padding: 4px 8px !important;
+    margin-bottom: 1px !important;
+    page-break-inside: avoid;
+    min-height: 28px !important;
+  }
+  
+  .problem-number {
+    font-size: 12px !important;
+    min-width: 25px !important;
+    margin-right: 10px !important;
+  }
+  
+  .problem-text {
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+  }
+  
+  /* Simple continuous layout - no forced page breaks */
+  
+  .worksheet-footer {
+    margin-top: 20px !important;
+    padding-top: 10px !important;
+    font-size: 10px !important;
+  }
+  
+  @page {
+    margin: 15mm;
+    size: A4;
+  }
+  
+  /* Ensure proper page breaks */
+  .worksheet {
+    page-break-inside: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .problems-grid {
+    orphans: 2;
+    widows: 2;
+    page-break-inside: auto !important;
+  }
+  
+  /* Force page breaks for multi-page layouts */
+  .worksheet-footer {
+    page-break-inside: avoid !important;
+  }
+  
+  /* Ensure page breaks work properly */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

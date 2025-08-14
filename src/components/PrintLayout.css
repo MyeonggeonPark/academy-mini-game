@@ -1,0 +1,253 @@
+/* PrintLayout Component Styles */
+
+.print-layout {
+  /* Screen display - normal layout */
+  display: block;
+  width: 100%;
+}
+
+.print-content {
+  /* Content wrapper - no special styling for screen */
+  width: 100%;
+}
+
+.print-only {
+  /* Hide print-only elements on screen */
+  display: none;
+}
+
+/* Print-specific styles */
+@media print {
+  /* Hide all navigation and non-content elements */
+  nav,
+  .navigation,
+  .nav,
+  .navbar,
+  .header,
+  .sidebar,
+  .menu,
+  .no-print,
+  .action-buttons,
+  .config-section,
+  .form-group,
+  .generate-button,
+  .print-button,
+  .clear-button {
+    display: none !important;
+  }
+
+  /* Reset body and html for print */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    font-family: 'Times New Roman', serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Print layout container */
+  .print-layout {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    page-break-inside: auto;
+  }
+
+  /* Print content area */
+  .print-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-sizing: border-box !important;
+  }
+
+  /* No additional print headers or footers needed */
+
+  /* Page setup - minimize margins for maximum content area */
+  @page {
+    size: A4;
+    margin: 5mm;
+    orphans: 2;
+    widows: 2;
+  }
+  
+  /* Alternative page setup for very large mazes */
+  @page :first {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  /* Worksheet-specific print styles */
+  .print-layout.worksheet {
+    /* Ensure worksheets fit properly on page */
+    page-break-inside: auto;
+  }
+
+  .print-layout.worksheet .print-content {
+    /* Add padding for worksheet content */
+    padding: 5mm !important;
+  }
+
+  /* Math worksheet specific adjustments */
+  .print-layout.math-worksheet .print-content {
+    /* Optimize spacing for math problems */
+    padding: 3mm !important;
+  }
+
+  /* Maze worksheet specific adjustments */
+  .print-layout.maze-worksheet .print-content {
+    /* Center maze content and minimize padding for maximum maze size */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1mm !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 1mm 0 !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-display {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-svg {
+    /* Maximize maze size to nearly fill entire A4 page */
+    max-width: 198mm !important;
+    max-height: 275mm !important;
+    width: auto !important;
+    height: auto !important;
+    transform-origin: center center !important;
+    object-fit: contain !important;
+  }
+  
+  /* Unified maze layout - works for all sizes */
+  .print-layout.maze-worksheet .maze-header {
+    margin-bottom: 3mm !important;
+    padding-bottom: 2mm !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-title {
+    font-size: 16pt !important;
+    margin-bottom: 5mm !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-info {
+    font-size: 12pt !important;
+    margin-bottom: 3mm !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-instructions {
+    font-size: 11pt !important;
+    margin-top: 3mm !important;
+    max-width: none !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-size-info {
+    font-size: 10pt !important;
+    margin-top: 2mm !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-legend {
+    font-size: 11pt !important;
+    margin-top: 5mm !important;
+  }
+  
+  .print-layout.maze-worksheet .maze-footer {
+    margin-top: 1mm !important;
+    padding-top: 1mm !important;
+    font-size: 9pt !important;
+  }
+
+  /* Ensure proper page breaks */
+  .print-layout * {
+    box-sizing: border-box !important;
+  }
+
+  /* Force page breaks when needed */
+  .page-break-before {
+    page-break-before: always !important;
+  }
+
+  .page-break-after {
+    page-break-after: always !important;
+  }
+
+  .page-break-inside-avoid {
+    page-break-inside: avoid !important;
+  }
+
+  /* Hide any remaining interactive elements */
+  button,
+  input,
+  select,
+  textarea,
+  .interactive {
+    display: none !important;
+  }
+
+  /* Ensure text is readable */
+  * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* Remove any shadows, borders, or decorative elements that don't print well */
+  .print-content * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Optimize images and SVGs for print */
+  img, svg {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Table optimization for print */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1pt solid black !important;
+    padding: 2mm !important;
+    text-align: left !important;
+  }
+
+  /* List optimization */
+  ul, ol {
+    margin: 0 !important;
+    padding-left: 5mm !important;
+  }
+
+  li {
+    margin-bottom: 1mm !important;
+    page-break-inside: avoid !important;
+  }
+}
