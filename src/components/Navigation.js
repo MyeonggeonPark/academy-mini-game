@@ -17,7 +17,7 @@ function Navigation() {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <h1 className="nav-title">교육 도구</h1>
+        <h1 className="nav-title">맵고맵지 생각훈련소</h1>
         
         {/* Mobile menu button */}
         <button 

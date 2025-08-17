@@ -594,13 +594,12 @@
   
   .maze-svg {
     border: none !important;
-    /* Maximize SVG size to nearly fill entire A4 page */
-    max-width: 198mm !important;
-    max-height: 275mm !important;
+    /* Optimize SVG size for portrait A4 page */
+    max-width: 190mm !important;
+    max-height: 260mm !important;
     width: auto !important;
     height: auto !important;
     transform-origin: center center !important;
-    /* Ensure proper scaling for large mazes */
     object-fit: contain !important;
   }
   
@@ -623,8 +622,8 @@
   }
   
   @page {
-    margin: 5mm;
-    size: A4;
+    margin: 10mm;
+    size: A4 portrait;
   }
   
   /* Ensure proper page breaks */

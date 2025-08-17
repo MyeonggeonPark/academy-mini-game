@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home">
       <div className="home-container">
-        <h1>교육 도구 웹사이트</h1>
+        <h1>맵고맵지 생각훈련소</h1>
         <p>초등학생을 위한 계산 문제와 미로 찾기 문제를 생성하는 도구입니다.</p>
         
         <div className="tool-cards">
