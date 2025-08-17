@@ -659,6 +659,13 @@
   @page {
     margin: 15mm;
     size: A4 portrait;
+    orientation: portrait;
+  }
+  
+  /* Force portrait orientation */
+  @page :first {
+    size: A4 portrait;
+    orientation: portrait;
   }
   
   /* Ensure proper page breaks */

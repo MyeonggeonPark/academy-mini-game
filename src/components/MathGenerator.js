@@ -234,15 +234,59 @@ function MathGenerator() {
 
   // Enhanced print functionality
   const handlePrint = () => {
+    // Add print-specific styles to force portrait orientation
+    const printStyles = document.createElement('style');
+    printStyles.textContent = `
+      @media print {
+        @page { 
+          size: A4 portrait !important; 
+          orientation: portrait !important;
+          margin: 15mm !important;
+        }
+        body { 
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+    `;
+    document.head.appendChild(printStyles);
+    
     // Trigger browser print dialog
     window.print();
+    
+    // Clean up styles after printing
+    setTimeout(() => {
+      document.head.removeChild(printStyles);
+    }, 1000);
   };
 
   // Print preview functionality
   const handlePrintPreview = () => {
+    // Add print-specific styles to force portrait orientation
+    const printStyles = document.createElement('style');
+    printStyles.textContent = `
+      @media print {
+        @page { 
+          size: A4 portrait !important; 
+          orientation: portrait !important;
+          margin: 15mm !important;
+        }
+        body { 
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+    `;
+    document.head.appendChild(printStyles);
+    
     // Open print preview by triggering print dialog
     // Modern browsers show print preview by default
     window.print();
+    
+    // Clean up styles after printing
+    setTimeout(() => {
+      document.head.removeChild(printStyles);
+    }, 1000);
   };
 
   return (
